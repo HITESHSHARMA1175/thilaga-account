@@ -9,20 +9,20 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as ServicesRouteImport } from './routes/services'
-import { Route as PricingRouteImport } from './routes/pricing'
+import { Route as ForFirmsRouteImport } from './routes/for-firms'
+import { Route as ForBusinessRouteImport } from './routes/for-business'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
-const ServicesRoute = ServicesRouteImport.update({
-  id: '/services',
-  path: '/services',
+const ForFirmsRoute = ForFirmsRouteImport.update({
+  id: '/for-firms',
+  path: '/for-firms',
   getParentRoute: () => rootRouteImport,
 } as any)
-const PricingRoute = PricingRouteImport.update({
-  id: '/pricing',
-  path: '/pricing',
+const ForBusinessRoute = ForBusinessRouteImport.update({
+  id: '/for-business',
+  path: '/for-business',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -45,54 +45,54 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/pricing': typeof PricingRoute
-  '/services': typeof ServicesRoute
+  '/for-business': typeof ForBusinessRoute
+  '/for-firms': typeof ForFirmsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/pricing': typeof PricingRoute
-  '/services': typeof ServicesRoute
+  '/for-business': typeof ForBusinessRoute
+  '/for-firms': typeof ForFirmsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/pricing': typeof PricingRoute
-  '/services': typeof ServicesRoute
+  '/for-business': typeof ForBusinessRoute
+  '/for-firms': typeof ForFirmsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/contact' | '/pricing' | '/services'
+  fullPaths: '/' | '/about' | '/contact' | '/for-business' | '/for-firms'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/contact' | '/pricing' | '/services'
-  id: '__root__' | '/' | '/about' | '/contact' | '/pricing' | '/services'
+  to: '/' | '/about' | '/contact' | '/for-business' | '/for-firms'
+  id: '__root__' | '/' | '/about' | '/contact' | '/for-business' | '/for-firms'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
-  PricingRoute: typeof PricingRoute
-  ServicesRoute: typeof ServicesRoute
+  ForBusinessRoute: typeof ForBusinessRoute
+  ForFirmsRoute: typeof ForFirmsRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/services': {
-      id: '/services'
-      path: '/services'
-      fullPath: '/services'
-      preLoaderRoute: typeof ServicesRouteImport
+    '/for-firms': {
+      id: '/for-firms'
+      path: '/for-firms'
+      fullPath: '/for-firms'
+      preLoaderRoute: typeof ForFirmsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/pricing': {
-      id: '/pricing'
-      path: '/pricing'
-      fullPath: '/pricing'
-      preLoaderRoute: typeof PricingRouteImport
+    '/for-business': {
+      id: '/for-business'
+      path: '/for-business'
+      fullPath: '/for-business'
+      preLoaderRoute: typeof ForBusinessRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -123,8 +123,8 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
-  PricingRoute: PricingRoute,
-  ServicesRoute: ServicesRoute,
+  ForBusinessRoute: ForBusinessRoute,
+  ForFirmsRoute: ForFirmsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
