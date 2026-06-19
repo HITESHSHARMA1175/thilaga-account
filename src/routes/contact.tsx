@@ -79,10 +79,10 @@ function ContactPage() {
         </div>
 
         <aside className="space-y-5">
-          <InfoCard icon={Mail} title="Email" lines={["hello@just-accounting.co.uk"]} />
-          <InfoCard icon={Phone} title="Phone" lines={["+44 (0) 20 0000 0000"]} />
+          <InfoCard icon={Mail} title="Email" lines={["ts.justaccount@mail.co.uk"]} />
+          <InfoCard icon={Phone} title="Phone" lines={["07352 463262"]} />
           <InfoCard icon={Clock} title="Hours" lines={["Mon – Fri: 9am – 5:30pm", "Replies within 1 working day"]} />
-          <InfoCard icon={MapPin} title="Coverage" lines={["United Kingdom — fully remote", "Serving clients nationwide"]} />
+          <InfoCard icon={MapPin} title="Coverage" lines={["United Kingdom — fully remote", "TS Professional Accountancy Ltd"]} />
         </aside>
       </section>
 

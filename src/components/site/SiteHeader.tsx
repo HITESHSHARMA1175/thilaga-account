@@ -4,9 +4,9 @@ import { Menu, X, Calculator } from "lucide-react";
 
 const nav = [
   { to: "/", label: "Home" },
-  { to: "/services", label: "Services" },
+  { to: "/for-firms", label: "For Firms" },
+  { to: "/for-business", label: "For Businesses" },
   { to: "/about", label: "About" },
-  { to: "/pricing", label: "Pricing" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
@@ -21,7 +21,7 @@ export function SiteHeader() {
           </span>
           Just Accounting
         </Link>
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-7 md:flex">
           {nav.map((n) => (
             <Link
               key={n.to}
