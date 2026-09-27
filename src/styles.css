@@ -12,10 +12,6 @@
  *
  * The :root and .dark blocks define the actual color values using oklch.
  * All colors MUST use oklch format.
- *
- * To add a new semantic color:
- * 1. Add the variable to :root (light value) and .dark (dark value)
- * 2. Register it in @theme inline as --color-<name>: var(--<name>)
  */
 
 @theme inline {
@@ -62,42 +58,44 @@
 }
 
 :root {
-  --radius: 0.5rem;
-  /* Brand: deep navy + warm gold for trustworthy, professional accounting */
-  --background: oklch(0.99 0.005 90);
-  --foreground: oklch(0.22 0.04 250);
+  --radius: 0.625rem;
+  /* Deep navy + warm gold — premium UK accounting firm palette */
+  /* Navy: #0F172A → oklch ≈ 0.20 0.055 264 */
+  /* Gold: #D4AF37 → oklch ≈ 0.76 0.13  83  */
+  /* BG:   #FAFAF8 → oklch ≈ 0.99 0.004  90  */
+  --background: oklch(0.99 0.004 90);
+  --foreground: oklch(0.20 0.055 264);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.22 0.04 250);
+  --card-foreground: oklch(0.20 0.055 264);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.22 0.04 250);
-  --primary: oklch(0.28 0.06 250);
-  --primary-foreground: oklch(0.99 0.005 90);
-  --secondary: oklch(0.95 0.015 90);
-  --secondary-foreground: oklch(0.28 0.06 250);
-  --muted: oklch(0.96 0.008 250);
-  --muted-foreground: oklch(0.5 0.03 250);
-  --accent: oklch(0.78 0.13 80);
-  --accent-foreground: oklch(0.22 0.04 250);
+  --popover-foreground: oklch(0.20 0.055 264);
+  --primary: oklch(0.20 0.055 264);
+  --primary-foreground: oklch(0.99 0.004 90);
+  --secondary: oklch(0.96 0.007 90);
+  --secondary-foreground: oklch(0.20 0.055 264);
+  --muted: oklch(0.96 0.007 264);
+  --muted-foreground: oklch(0.52 0.03 264);
+  --accent: oklch(0.76 0.13 83);
+  --accent-foreground: oklch(0.18 0.05 264);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.9 0.015 250);
-  --input: oklch(0.92 0.012 250);
-  --ring: oklch(0.78 0.13 80);
-  --chart-1: oklch(0.28 0.06 250);
-  --chart-2: oklch(0.78 0.13 80);
+  --border: oklch(0.91 0.010 264);
+  --input: oklch(0.93 0.008 264);
+  --ring: oklch(0.76 0.13 83);
+  --chart-1: oklch(0.20 0.055 264);
+  --chart-2: oklch(0.76 0.13 83);
   --chart-3: oklch(0.55 0.08 220);
   --chart-4: oklch(0.7 0.1 150);
   --chart-5: oklch(0.5 0.12 30);
-  --sidebar: oklch(0.99 0.005 90);
-  --sidebar-foreground: oklch(0.22 0.04 250);
-  --sidebar-primary: oklch(0.28 0.06 250);
-  --sidebar-primary-foreground: oklch(0.99 0.005 90);
-  --sidebar-accent: oklch(0.95 0.015 90);
-  --sidebar-accent-foreground: oklch(0.28 0.06 250);
-  --sidebar-border: oklch(0.9 0.015 250);
-  --sidebar-ring: oklch(0.78 0.13 80);
+  --sidebar: oklch(0.99 0.004 90);
+  --sidebar-foreground: oklch(0.20 0.055 264);
+  --sidebar-primary: oklch(0.20 0.055 264);
+  --sidebar-primary-foreground: oklch(0.99 0.004 90);
+  --sidebar-accent: oklch(0.96 0.007 90);
+  --sidebar-accent-foreground: oklch(0.20 0.055 264);
+  --sidebar-border: oklch(0.91 0.010 264);
+  --sidebar-ring: oklch(0.76 0.13 83);
 }
-
 
 .dark {
   --background: oklch(0.129 0.042 264.695);
@@ -112,13 +110,13 @@
   --secondary-foreground: oklch(0.984 0.003 247.858);
   --muted: oklch(0.279 0.041 260.031);
   --muted-foreground: oklch(0.704 0.04 256.788);
-  --accent: oklch(0.279 0.041 260.031);
-  --accent-foreground: oklch(0.984 0.003 247.858);
+  --accent: oklch(0.76 0.13 83);
+  --accent-foreground: oklch(0.18 0.05 264);
   --destructive: oklch(0.704 0.191 22.216);
   --destructive-foreground: oklch(0.984 0.003 247.858);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.551 0.027 264.364);
+  --ring: oklch(0.76 0.13 83);
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
@@ -131,17 +129,22 @@
   --sidebar-accent: oklch(0.279 0.041 260.031);
   --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
   --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.551 0.027 264.364);
+  --sidebar-ring: oklch(0.76 0.13 83);
 }
 
 @theme inline {
-  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Outfit', 'Inter', ui-sans-serif, system-ui, sans-serif;
   --font-serif: 'Fraunces', ui-serif, Georgia, serif;
 }
 
 @layer base {
   * {
     border-color: var(--color-border);
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
   }
 
   body {
@@ -149,11 +152,279 @@
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
-  h1, h2, h3, .font-serif {
+  h1, h2, h3, h4, .font-serif {
     font-family: var(--font-serif);
     letter-spacing: -0.02em;
   }
 }
 
+/* ─── Premium utility classes ─────────────────────────────── */
+
+/* Gold gradient text */
+.text-gradient-gold {
+  background: linear-gradient(135deg, oklch(0.76 0.13 83), oklch(0.85 0.10 75));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Animated underline on hover */
+.link-underline {
+  position: relative;
+}
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: oklch(0.76 0.13 83);
+  transition: width 0.25s ease;
+}
+.link-underline:hover::after {
+  width: 100%;
+}
+
+/* Glass card */
+.glass-card {
+  background: oklch(1 0 0 / 60%);
+  backdrop-filter: blur(12px);
+  border: 1px solid oklch(0.91 0.010 264 / 60%);
+}
+
+/* Premium card hover */
+.card-hover {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px oklch(0.20 0.055 264 / 10%);
+  border-color: oklch(0.76 0.13 83 / 60%);
+}
+
+/* Gold pill badge */
+.badge-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid oklch(0.76 0.13 83 / 40%);
+  background: oklch(0.76 0.13 83 / 12%);
+  color: oklch(0.55 0.10 83);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Section divider — thin gold line */
+.divider-gold {
+  width: 48px;
+  height: 3px;
+  border-radius: 999px;
+  background: oklch(0.76 0.13 83);
+  margin-bottom: 1.5rem;
+}
+
+/* Stat number animation pulse */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+.animate-fade-up {
+  animation: fade-up 0.6s ease both;
+}
+.animate-fade-up-delay-1 { animation-delay: 0.1s; }
+.animate-fade-up-delay-2 { animation-delay: 0.2s; }
+.animate-fade-up-delay-3 { animation-delay: 0.3s; }
+.animate-fade-up-delay-4 { animation-delay: 0.4s; }
+
+/* Shimmer line on cards */
+@keyframes shimmer {
+  from { background-position: -200% center; }
+  to   { background-position:  200% center; }
+}
+
+/* Admin form input base */
+.input-field {
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border);
+  background: var(--background);
+  padding: 0.625rem 1rem;
+  font-size: 0.875rem;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.input-field:focus {
+  border-color: oklch(0.76 0.13 83);
+  box-shadow: 0 0 0 3px oklch(0.76 0.13 83 / 15%);
+}
+
+/* Admin label */
+.admin-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+
+/* Admin input */
+.admin-input {
+  width: 100%;
+  border-radius: 0.625rem;
+  border: 1px solid var(--input);
+  background: oklch(0.97 0.003 264 / 60%);
+  padding: 0.6rem 0.875rem;
+  font-size: 0.875rem;
+  color: var(--foreground);
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+.admin-input:focus {
+  border-color: oklch(0.76 0.13 83);
+  background: white;
+  box-shadow: 0 0 0 3px oklch(0.76 0.13 83 / 12%);
+}
+
+/* ─── Blog post content typography ─────────────────────────────────────────── */
+
+.blog-content {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--foreground);
+}
+.blog-content h1 {
+  font-family: var(--font-serif, Georgia, serif);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 2.5rem 0 1rem;
+  line-height: 1.2;
+}
+.blog-content h2 {
+  font-family: var(--font-serif, Georgia, serif);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin: 2rem 0 0.75rem;
+  line-height: 1.3;
+}
+.blog-content h3 {
+  font-family: var(--font-serif, Georgia, serif);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin: 1.5rem 0 0.5rem;
+}
+.blog-content p {
+  margin: 0 0 1.25rem;
+  color: var(--muted-foreground);
+}
+.blog-content strong {
+  font-weight: 600;
+  color: var(--foreground);
+}
+.blog-content em {
+  font-style: italic;
+}
+.blog-content a {
+  color: oklch(0.55 0.10 83);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.blog-content a:hover { color: oklch(0.45 0.10 83); }
+.blog-content ul,
+.blog-content ol {
+  margin: 0 0 1.25rem 1.5rem;
+  color: var(--muted-foreground);
+}
+.blog-content ul { list-style-type: disc; }
+.blog-content ol { list-style-type: decimal; }
+.blog-content li { margin-bottom: 0.4rem; }
+.blog-content blockquote {
+  border-left: 3px solid oklch(0.76 0.13 83);
+  padding: 0.75rem 1.25rem;
+  margin: 1.5rem 0;
+  background: oklch(0.76 0.13 83 / 6%);
+  border-radius: 0 0.5rem 0.5rem 0;
+  color: var(--muted-foreground);
+  font-style: italic;
+}
+.blog-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Images & figures inside blog posts */
+.blog-content img,
+.blog-img {
+  max-width: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border);
+  margin: 0.5rem 0;
+}
+.blog-figure {
+  margin: 2rem 0;
+}
+.blog-caption {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--muted-foreground);
+  text-align: center;
+  font-style: italic;
+}
+.blog-caption:focus { outline: none; border-bottom: 1px dashed var(--border); }
+
+/* Responsive video embed wrapper */
+.blog-video-wrap {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 */
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.blog-iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ─── Rich editor body ──────────────────────────────────────────────────────── */
+
+.rich-editor-body:empty::before {
+  content: attr(data-placeholder);
+  color: var(--muted-foreground);
+  pointer-events: none;
+}
+
+/* Mirror blog-content styles inside the editor */
+.rich-editor-body h1 { font-family: var(--font-serif, Georgia, serif); font-size: 2rem; font-weight: 700; color: var(--primary); margin: 1.5rem 0 0.5rem; }
+.rich-editor-body h2 { font-family: var(--font-serif, Georgia, serif); font-size: 1.5rem; font-weight: 600; color: var(--primary); margin: 1.25rem 0 0.5rem; }
+.rich-editor-body h3 { font-family: var(--font-serif, Georgia, serif); font-size: 1.2rem; font-weight: 600; color: var(--primary); margin: 1rem 0 0.25rem; }
+.rich-editor-body p { margin-bottom: 0.75rem; }
+.rich-editor-body strong { font-weight: 600; }
+.rich-editor-body ul { list-style: disc; margin-left: 1.5rem; margin-bottom: 0.75rem; }
+.rich-editor-body ol { list-style: decimal; margin-left: 1.5rem; margin-bottom: 0.75rem; }
+.rich-editor-body li { margin-bottom: 0.25rem; }
+.rich-editor-body blockquote { border-left: 3px solid oklch(0.76 0.13 83); padding: 0.5rem 1rem; margin: 1rem 0; background: oklch(0.76 0.13 83 / 6%); border-radius: 0 0.5rem 0.5rem 0; font-style: italic; }
+.rich-editor-body hr { border: none; border-top: 1px solid var(--border); margin: 1.5rem 0; }
+.rich-editor-body a { color: oklch(0.55 0.10 83); text-decoration: underline; }
+.rich-editor-body img { max-width: 100%; border-radius: 0.75rem; border: 1px solid var(--border); margin: 0.5rem 0; }
+.rich-editor-body .blog-figure { margin: 1.5rem 0; }
+.rich-editor-body .blog-video-wrap { position: relative; width: 100%; padding-top: 56.25%; border-radius: 0.75rem; overflow: hidden; border: 1px solid var(--border); }
+.rich-editor-body .blog-iframe { position: absolute; inset: 0; width: 100%; height: 100%; }
+.rich-editor-body .blog-caption { display: block; margin-top: 0.4rem; font-size: 0.8rem; color: var(--muted-foreground); text-align: center; font-style: italic; }
+.rich-editor-body .blog-caption:focus { outline: none; border-bottom: 1px dashed var(--border); }
