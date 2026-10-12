@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const nav = [
   { to: "/", label: "Home" },
@@ -9,95 +9,77 @@ const nav = [
   { to: "/blog", label: "Blog" },
   { to: "/testimonials", label: "Testimonials" },
   { to: "/about", label: "About" },
-  { to: "/contact", label: "Contact" },
 ] as const;
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
+
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur-md">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
+    <header style={{
+      position: "sticky", top: 0, zIndex: 50,
+      backgroundColor: "#F4EFE6",
+      borderBottom: "1px solid rgba(23,20,15,0.10)",
+    }}>
+      <div style={{
+        maxWidth: "1400px", margin: "0 auto",
+        padding: "0 clamp(24px,4vw,48px)",
+        height: "52px",
+        display: "flex", alignItems: "center", justifyContent: "space-between",
+      }}>
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-3">
-          <span className="grid h-9 w-9 place-items-center rounded-xl bg-primary text-primary-foreground shadow-md shadow-primary/20">
-            {/* Simple "JA" monogram */}
-            <span className="font-serif text-sm font-bold">JA</span>
-          </span>
-          <span className="font-serif text-lg font-semibold text-primary">
-            Just Accounting
-          </span>
+        <Link to="/" style={{ display: "flex", alignItems: "center", gap: "10px", textDecoration: "none" }}>
+          <span style={{
+            display: "grid", placeItems: "center",
+            width: "32px", height: "32px",
+            background: "#17140F", color: "#FCB019",
+            fontFamily: "'Fraunces', serif", fontSize: "13px", fontWeight: 400,
+            letterSpacing: "-0.3px",
+          }}>JA</span>
+          <span style={{
+            fontFamily: "'Fraunces', serif", fontSize: "17px",
+            fontWeight: 400, color: "#17140F", letterSpacing: "-0.2px",
+          }}>Just Accounting</span>
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-8 md:flex">
-          {nav.map((n) => (
-            <Link
-              key={n.to}
-              to={n.to}
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary link-underline"
-              activeProps={{ className: "text-primary font-semibold" }}
-            >
-              {n.label}
-            </Link>
+        <nav style={{ display: "flex", alignItems: "center", gap: "32px" }} className="hidden md:flex">
+          {nav.map(n => (
+            <Link key={n.to} to={n.to}
+              style={{ fontFamily: "'Inter',sans-serif", fontSize: "14px", fontWeight: 400, color: "#17140F", textDecoration: "none", opacity: 0.75, transition: "opacity 0.15s" }}
+              activeProps={{ style: { fontFamily: "'Inter',sans-serif", fontSize: "14px", fontWeight: 400, color: "#17140F", textDecoration: "none", opacity: 1, borderBottom: "1px solid #FCB019", paddingBottom: "2px" } }}
+              onMouseEnter={e => (e.currentTarget.style.opacity = "1")}
+              onMouseLeave={e => (e.currentTarget.style.opacity = "0.75")}
+            >{n.label}</Link>
           ))}
+          <Link to="/contact"
+            style={{ fontFamily: "'Inter',sans-serif", fontSize: "14px", fontWeight: 500, color: "#8A5600", textDecoration: "none", transition: "opacity 0.15s" }}
+            onMouseEnter={e => (e.currentTarget.style.textDecoration = "underline")}
+            onMouseLeave={e => (e.currentTarget.style.textDecoration = "none")}
+          >Free Consultation →</Link>
         </nav>
 
-        {/* Desktop CTAs */}
-        <div className="hidden items-center gap-3 md:flex">
-          <a
-            href="tel:+447352463262"
-            className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-          >
-            <Phone className="h-3.5 w-3.5" />
-            07352 463262
-          </a>
-          <Link
-            to="/contact"
-            id="header-cta"
-            className="rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-accent-foreground shadow-sm shadow-accent/20 transition-all hover:-translate-y-0.5 hover:shadow-md hover:shadow-accent/30"
-          >
-            Free Consultation
-          </Link>
-        </div>
-
         {/* Mobile hamburger */}
-        <button
-          onClick={() => setOpen(!open)}
-          className="rounded-md p-2 text-foreground transition-colors hover:bg-secondary md:hidden"
-          aria-label="Toggle menu"
-        >
-          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+        <button onClick={() => setOpen(!open)} className="md:hidden"
+          style={{ background: "none", border: "none", cursor: "pointer", color: "#17140F", padding: "8px" }}
+          aria-label="Toggle menu">
+          {open ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
 
       {/* Mobile menu */}
       {open && (
-        <div className="border-t border-border bg-background/95 backdrop-blur-md md:hidden">
-          <nav className="flex flex-col gap-1 px-6 py-4">
-            {nav.map((n) => (
-              <Link
-                key={n.to}
-                to={n.to}
-                onClick={() => setOpen(false)}
-                className="rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-primary"
-                activeProps={{ className: "bg-secondary text-primary font-semibold" }}
-              >
-                {n.label}
-              </Link>
+        <div style={{ backgroundColor: "#F4EFE6", borderTop: "1px solid rgba(23,20,15,0.10)" }} className="md:hidden">
+          <nav style={{ display: "flex", flexDirection: "column", padding: "8px clamp(24px,4vw,48px) 20px" }}>
+            {nav.map(n => (
+              <Link key={n.to} to={n.to} onClick={() => setOpen(false)}
+                style={{ fontFamily: "'Inter',sans-serif", fontSize: "15px", fontWeight: 400, color: "#17140F", padding: "12px 0", borderBottom: "1px solid rgba(23,20,15,0.08)", textDecoration: "none" }}
+                activeProps={{ style: { fontFamily: "'Inter',sans-serif", fontSize: "15px", fontWeight: 400, color: "#FCB019", padding: "12px 0", borderBottom: "1px solid rgba(23,20,15,0.08)", textDecoration: "none" } }}
+              >{n.label}</Link>
             ))}
-            <Link
-              to="/contact"
-              onClick={() => setOpen(false)}
-              className="mt-3 rounded-lg bg-accent px-4 py-3 text-center text-sm font-semibold text-accent-foreground"
-            >
-              Free Consultation
+            <Link to="/contact" onClick={() => setOpen(false)}
+              style={{ fontFamily: "'Inter',sans-serif", fontSize: "15px", fontWeight: 500, color: "#8A5600", padding: "14px 0", textDecoration: "none" }}>
+              Free Consultation →
             </Link>
-            <a
-              href="tel:+447352463262"
-              className="mt-1 flex items-center justify-center gap-2 rounded-lg border border-border px-4 py-3 text-sm font-medium text-foreground"
-            >
-              <Phone className="h-4 w-4" /> 07352 463262
-            </a>
           </nav>
         </div>
       )}
