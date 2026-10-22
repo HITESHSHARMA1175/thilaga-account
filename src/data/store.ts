@@ -83,6 +83,53 @@ const DEFAULT_POSTS: BlogPost[] = [
     published: true,
     category: "Bookkeeping Tips",
   },
+  {
+    id: "3",
+    title: "Why UK Accountancy Practices Are Turning to White-Label Bookkeeping Partners",
+    slug: "why-firms-use-white-label-bookkeeping",
+    excerpt:
+      "Recruiting full-time bookkeeping staff in the UK has never been more costly or challenging. Discover why leading practices rely on outsourced white-label support to protect partner margins.",
+    content: "",
+    contentHtml: `<p>For managing partners and sole practitioners across the UK, staffing bottlenecks have become the primary constraint on growth. When senior qualified staff spend their days reconciling bank feeds and chasing receipts, practice profitability collapses.</p>
+<h2>The Senior Capacity Problem</h2>
+<p>When bookkeeping falls behind, senior accountants end up spending billable advisory time preparing ledgers for VAT or year-end accounts. This turns high-value hours into low-margin administrative work.</p>
+<h2>What Does a White-Label Arrangement Look Like?</h2>
+<p>Under a white-label arrangement, an experienced UK bookkeeper works silently under your practice brand. They access your cloud platforms (Xero, Sage, QuickBooks, Dext) using firm email addresses or internal permissions, producing working-paper ready reconciliations that drop straight into your tax software.</p>
+<h2>Key Advantages for Modern Practices:</h2>
+<ul>
+  <li><strong>Zero recruitment overhead:</strong> No agency fees, NI, pension contributions, or holiday cover.</li>
+  <li><strong>Immediate overflow absorption:</strong> Seamless handling of January Self Assessment crunches and quarterly VAT peaks.</li>
+  <li><strong>Client retention:</strong> Fast, clean bookkeeping prevents client frustration and improves partner reviews.</li>
+</ul>
+<p>At Just Accounting, we partner with firms of all sizes under strict non-disclosure agreements. Get in touch to discuss capacity for the upcoming quarter.</p>`,
+    author: "Thilaga",
+    date: "2024-12-02",
+    published: true,
+    category: "Business Finance",
+  },
+  {
+    id: "4",
+    title: "Common VAT Return Mistakes UK Small Businesses Make — And How to Prevent Them",
+    slug: "common-vat-mistakes-uk-businesses",
+    excerpt:
+      "From misclaiming input tax on business entertainment to missing cross-border service rules, here are the most frequent VAT errors that trigger HMRC audits.",
+    content: "",
+    contentHtml: `<p>VAT errors are among the most common triggers for HMRC enquiries and penalties. Because VAT operates on a strict quarterly cadence, repeated mistakes compound quickly if left unaddressed.</p>
+<h2>1. Claiming VAT on Client Entertaining</h2>
+<p>One of the most persistent errors: business entertainment for clients or prospects is strictly <strong>blocked from input tax recovery</strong> under HMRC guidelines, even if it is a legitimate commercial expense.</p>
+<h2>2. Reclaiming VAT Without Valid VAT Invoices</h2>
+<p>Credit card slips or bank statements are not VAT invoices. HMRC requires valid tax invoices showing the supplier's 9-digit VAT number, tax point date, and VAT breakdown before input tax can be legitimately claimed.</p>
+<h2>3. Fuel Scale Charges and Mixed-Use Vehicles</h2>
+<p>If your business pays for fuel in cars used for both business and private journeys, you must apply the correct VAT fuel scale charge or track business-only mileage rigorously.</p>
+<h2>4. Inaccurate EC and International Services Treatment</h2>
+<p>The post-Brexit place-of-supply rules for digital and professional services require exact application of the reverse charge mechanism. Misclassifying these transactions leads to errors on Box 1 and Box 4 of the return.</p>
+<h2>The Solution: Systematic Reconciliation</h2>
+<p>A structured monthly bookkeeping routine eliminates these issues well before the quarterly return is submitted. If you would like a professional review of your VAT setup, reach out to Just Accounting today.</p>`,
+    author: "Thilaga",
+    date: "2024-12-18",
+    published: true,
+    category: "Tax & Compliance",
+  },
 ];
 
 const DEFAULT_TESTIMONIALS: Testimonial[] = [
@@ -123,7 +170,7 @@ const DEFAULT_TESTIMONIALS: Testimonial[] = [
 
 // ─── Blog helpers ────────────────────────────────────────────────────────────
 
-const SCHEMA_VERSION = "v2"; // bump when seed data changes
+const SCHEMA_VERSION = "v3"; // bump when seed data changes
 const SCHEMA_VERSION_KEY = "ja_blog_schema";
 
 export function getPosts(): BlogPost[] {

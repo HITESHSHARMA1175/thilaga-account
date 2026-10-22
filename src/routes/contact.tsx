@@ -29,28 +29,28 @@ const MAX = "1280px";
 /* ── Minimal dark input style injected once ── */
 const FIELD_CSS = `
   .ja-field { display:flex; flex-direction:column; gap:7px; }
-  .ja-label { font-family:'Inter',sans-serif; font-size:9px; letter-spacing:2px; text-transform:uppercase; color:rgba(239,231,214,0.35); }
+  .ja-label { font-family:'Inter',sans-serif; font-size:9.5px; font-weight:700; letter-spacing:1.8px; text-transform:uppercase; color:#3A332A; }
   .ja-input {
     width:100%; height:48px; padding:0 16px;
-    background:rgba(239,231,214,0.04);
-    border:1px solid rgba(239,231,214,0.12);
-    color:#EFE7D6; font-family:'Inter',sans-serif; font-size:13px;
-    outline:none; box-sizing:border-box; transition:border-color .2s;
-    border-radius:0; appearance:none; -webkit-appearance:none;
+    background:#FFFFFF;
+    border:1px solid rgba(23,20,15,0.14);
+    color:#17140F; font-family:'Inter',sans-serif; font-size:13.5px; font-weight:500;
+    outline:none; box-sizing:border-box; transition:border-color .2s, box-shadow .2s;
+    border-radius:2px; appearance:none; -webkit-appearance:none;
   }
-  .ja-input::placeholder { color:rgba(239,231,214,0.22); }
-  .ja-input:focus { border-color:#FCB019; background:rgba(252,176,25,0.04); }
-  .ja-input option { background:#1A1710; color:#EFE7D6; }
+  .ja-input::placeholder { color:rgba(23,20,15,0.38); font-weight:400; }
+  .ja-input:focus { border-color:#FCB019; background:#FFFFFF; box-shadow:0 0 0 3px rgba(252,176,25,0.22); }
+  .ja-input option { background:#FFFFFF; color:#17140F; }
   .ja-textarea {
     width:100%; min-height:120px; padding:14px 16px; resize:vertical;
-    background:rgba(239,231,214,0.04);
-    border:1px solid rgba(239,231,214,0.12);
-    color:#EFE7D6; font-family:'Inter',sans-serif; font-size:13px; line-height:1.65;
-    outline:none; box-sizing:border-box; transition:border-color .2s;
-    border-radius:0;
+    background:#FFFFFF;
+    border:1px solid rgba(23,20,15,0.14);
+    color:#17140F; font-family:'Inter',sans-serif; font-size:13.5px; line-height:1.65; font-weight:500;
+    outline:none; box-sizing:border-box; transition:border-color .2s, box-shadow .2s;
+    border-radius:2px;
   }
-  .ja-textarea::placeholder { color:rgba(239,231,214,0.22); }
-  .ja-textarea:focus { border-color:#FCB019; background:rgba(252,176,25,0.04); }
+  .ja-textarea::placeholder { color:rgba(23,20,15,0.38); font-weight:400; }
+  .ja-textarea:focus { border-color:#FCB019; background:#FFFFFF; box-shadow:0 0 0 3px rgba(252,176,25,0.22); }
   @media (max-width: 1100px) {
     .contact-hero-lottie { display:none; }
   }
@@ -66,133 +66,152 @@ function ContactPage() {
       <SiteHeader />
 
       {/* ══════════════════════════════════════
-          HERO — full-width, editorial
+          HERO — balanced screen ratio with aligned Lottie arrow
       ══════════════════════════════════════ */}
-      <section style={{ position: "relative", overflow: "hidden", backgroundColor: "#0F0C08" }}>
-        <div style={{ position: "absolute", inset: 0, backgroundImage: `url(${imgHero})`, backgroundSize: "cover", backgroundPosition: "center 45%", opacity: 0.10 }} />
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(165deg, rgba(15,12,8,0.97) 0%, rgba(15,12,8,0.82) 60%, rgba(15,12,8,0.98) 100%)" }} />
+      <section style={{ position: "relative", overflow: "hidden", backgroundColor: "#0F0C08", borderBottom: "1px solid rgba(252,176,25,0.10)" }}>
+        <div style={{ position: "absolute", inset: 0, backgroundImage: `url(${imgHero})`, backgroundSize: "cover", backgroundPosition: "center 45%", opacity: 0.08 }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(165deg, rgba(15,12,8,0.97) 0%, rgba(15,12,8,0.85) 60%, rgba(15,12,8,0.98) 100%)" }} />
 
-        <div
-          className="contact-hero-lottie"
-          aria-hidden="true"
-          style={{
-            position: "absolute",
-            zIndex: 0,
-            top: "clamp(96px, 15vh, 170px)",
-            right: "max(3vw, calc((100vw - 1280px) / 2 + 36px))",
-            width: "clamp(300px, 34vw, 470px)",
-            height: "clamp(300px, 34vw, 470px)",
-            opacity: 0.9,
-            pointerEvents: "none",
-          }}
-        >
-          <DotLottieReact
-            src="https://lottie.host/12154a33-14d6-4a7b-a17a-24125c7503b0/0scJpnXfxC.lottie"
-            loop
-            autoplay
-          />
-        </div>
+        <div style={{ position: "relative", zIndex: 1, maxWidth: MAX, margin: "0 auto", padding: `clamp(36px,5vh,52px) ${C} clamp(32px,4vh,44px)` }}>
 
-        <div style={{ position: "relative", zIndex: 1, maxWidth: MAX, margin: "0 auto", padding: `clamp(60px,9vh,100px) ${C}` }}>
-
-          {/* Label */}
-          <div style={{ display: "flex", alignItems: "center", gap: "14px", marginBottom: "32px" }}>
-            <div style={{ width: "32px", height: "2px", background: "#FCB019" }} />
-            <span style={{ fontFamily: "'Inter',sans-serif", fontSize: "9px", letterSpacing: "2.5px", textTransform: "uppercase", color: "#FCB019" }}>FREE CONSULTATION — NO OBLIGATION</span>
+          {/* Top Label */}
+          <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "20px" }}>
+            <div style={{ width: "24px", height: "2px", background: "#FCB019" }} />
+            <span style={{ fontFamily: "'Inter',sans-serif", fontSize: "9px", letterSpacing: "2.5px", textTransform: "uppercase", color: "#FCB019" }}>
+              FREE CONSULTATION — NO OBLIGATION
+            </span>
           </div>
 
-          {/* Headline */}
-          <h1 style={{ margin: "0 0 40px", lineHeight: 0.86 }}>
-            <div style={{ fontFamily: "'Fraunces',serif", display: "flex", flexWrap: "wrap", gap: "0 0.1em", alignItems: "baseline", marginBottom: "0.04em" }}>
-              <span style={{ fontSize: "clamp(54px,10.5vw,148px)", fontWeight: 300, fontStyle: "italic", color: "rgba(239,231,214,0.78)", letterSpacing: "-3px" }}>Let's</span>
-              <span style={{ fontSize: "clamp(54px,10.5vw,148px)", fontWeight: 800, color: "#EFE7D6", letterSpacing: "-4px" }}>talk</span>
-            </div>
-            <div style={{ fontFamily: "'Fraunces',serif", display: "flex", flexWrap: "wrap", gap: "0 0.1em", alignItems: "baseline", marginBottom: "0.04em" }}>
-              <span style={{ fontSize: "clamp(54px,10.5vw,148px)", fontWeight: 300, fontStyle: "italic", color: "rgba(239,231,214,0.46)", letterSpacing: "-3px" }}>about your</span>
-            </div>
-            <div style={{ fontFamily: "'Fraunces',serif", display: "flex", flexWrap: "wrap", gap: "0 0.1em", alignItems: "baseline" }}>
-              <span style={{ fontSize: "clamp(54px,10.5vw,148px)", fontWeight: 800, color: "#FCB019", letterSpacing: "-4px" }}>business.</span>
-            </div>
-          </h1>
-
-          {/* Sub-line + quick contact — side by side */}
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(32px,5vw,80px)", alignItems: "end" }}>
-            <p style={{ fontFamily: "'Inter',sans-serif", fontSize: "14px", lineHeight: 1.80, color: "rgba(239,231,214,0.42)", margin: 0 }}>
-              Send us a message below or reach out directly. We respond to every enquiry within one working day — usually within a few hours. The first conversation is always free and comes with no obligation.
-            </p>
-            {/* Direct contact strip */}
-            <div style={{ display: "flex", flexDirection: "column", gap: "1px", backgroundColor: "rgba(252,176,25,0.08)" }}>
-              {[
-                { icon: Phone, label: "CALL", val: "+44 7352 463262", href: "tel:+447352463262" },
-                { icon: Mail, label: "EMAIL", val: "ts.justaccount@mail.co.uk", href: "mailto:ts.justaccount@mail.co.uk" },
-                { icon: Clock, label: "HOURS", val: "Mon – Fri · 9:00am – 5:30pm", href: null },
-              ].map(c => (
-                <div key={c.label} style={{ background: "rgba(15,12,8,0.72)", padding: "13px 18px", display: "flex", alignItems: "center", gap: "12px" }}>
-                  <c.icon size={12} color="#FCB019" strokeWidth={1.5} style={{ flexShrink: 0 }} />
-                  <span style={{ fontFamily: "'Inter',sans-serif", fontSize: "9px", letterSpacing: "1.5px", textTransform: "uppercase", color: "rgba(252,176,25,0.40)", width: "44px", flexShrink: 0 }}>{c.label}</span>
-                  {c.href
-                    ? <a href={c.href} style={{ fontFamily: "'Inter',sans-serif", fontSize: "12.5px", color: "rgba(239,231,214,0.60)", textDecoration: "none" }}
-                        onMouseEnter={e => (e.currentTarget.style.color = "#FCB019")}
-                        onMouseLeave={e => (e.currentTarget.style.color = "rgba(239,231,214,0.60)")}
-                      >{c.val}</a>
-                    : <span style={{ fontFamily: "'Inter',sans-serif", fontSize: "12.5px", color: "rgba(239,231,214,0.55)" }}>{c.val}</span>
-                  }
+          {/* 2-Column Hero: Headline + Aligned Lottie Arrow + Quick Contact Cards */}
+          <div style={{ display: "grid", gridTemplateColumns: "1.2fr 1fr", gap: "clamp(32px,4vw,64px)", alignItems: "center", position: "relative" }}>
+            <div>
+              <h1 style={{ margin: "0 0 16px", lineHeight: 1.04 }}>
+                <div style={{ fontFamily: "'Fraunces',serif", display: "flex", flexWrap: "wrap", gap: "0 0.12em", alignItems: "baseline" }}>
+                  <span style={{ fontSize: "clamp(38px,5.2vw,72px)", fontWeight: 300, fontStyle: "italic", color: "rgba(239,231,214,0.82)", letterSpacing: "-1.5px" }}>Let's talk</span>
+                  <span style={{ fontSize: "clamp(38px,5.2vw,72px)", fontWeight: 800, color: "#EFE7D6", letterSpacing: "-2px" }}>about your</span>
                 </div>
-              ))}
+                <div style={{ fontFamily: "'Fraunces',serif" }}>
+                  <span style={{ fontSize: "clamp(38px,5.2vw,72px)", fontWeight: 800, color: "#FCB019", letterSpacing: "-2px" }}>business.</span>
+                </div>
+              </h1>
+
+              <p style={{ fontFamily: "'Inter',sans-serif", fontSize: "14px", lineHeight: 1.75, color: "rgba(239,231,214,0.50)", margin: 0, maxWidth: "520px" }}>
+                Send us a message below or reach out directly. We respond to every enquiry within one working day — usually within a few hours. The first conversation is always free with no pressure.
+              </p>
+            </div>
+
+            {/* Right Column: Lottie Arrow pointing down + Direct Contact Cards */}
+            <div style={{ position: "relative", display: "flex", flexDirection: "column", gap: "10px" }}>
+              {/* Lottie Arrow aligned at the top of the contact panel */}
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", minHeight: "72px" }}>
+                <div>
+                  <span style={{ fontFamily: "'Fraunces',serif", fontStyle: "italic", fontSize: "15px", color: "#FCB019", display: "block", marginBottom: "2px" }}>
+                    Get in touch directly
+                  </span>
+                  <span style={{ fontFamily: "'Inter',sans-serif", fontSize: "10px", color: "rgba(239,231,214,0.40)", letterSpacing: "0.5px" }}>
+                    We respond within one working day
+                  </span>
+                </div>
+
+                {/* Animated Lottie Arrow properly sized and aligned */}
+                <div
+                  className="contact-hero-lottie"
+                  aria-hidden="true"
+                  style={{
+                    width: "clamp(100px, 12vw, 140px)",
+                    height: "clamp(100px, 12vw, 140px)",
+                    pointerEvents: "none",
+                    opacity: 0.95,
+                    transform: "rotate(-8deg)",
+                    margin: "-18px -10px -18px 0",
+                  }}
+                >
+                  <DotLottieReact
+                    src="https://lottie.host/12154a33-14d6-4a7b-a17a-24125c7503b0/0scJpnXfxC.lottie"
+                    loop
+                    autoplay
+                  />
+                </div>
+              </div>
+
+              {/* Direct contact cards grid */}
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px" }}>
+                {[
+                  { icon: Phone, label: "DIRECT CALL", val: "+44 7352 463262", href: "tel:+447352463262" },
+                  { icon: Mail, label: "DIRECT EMAIL", val: "ts.justaccount@mail.co.uk", href: "mailto:ts.justaccount@mail.co.uk" },
+                  { icon: Clock, label: "OFFICE HOURS", val: "Mon – Fri · 9am – 5:30pm", href: null },
+                  { icon: MapPin, label: "LOCATION", val: "UK Based · Fully Remote", href: null },
+                ].map((c) => (
+                  <div key={c.label} style={{ background: "rgba(15,12,8,0.72)", border: "1px solid rgba(252,176,25,0.10)", padding: "14px 16px" }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: "7px", marginBottom: "4px" }}>
+                      <c.icon size={11} color="#FCB019" strokeWidth={1.5} />
+                      <span style={{ fontFamily: "'Inter',sans-serif", fontSize: "8px", letterSpacing: "1.5px", textTransform: "uppercase", color: "rgba(252,176,25,0.50)" }}>{c.label}</span>
+                    </div>
+                    {c.href ? (
+                      <a href={c.href} style={{ fontFamily: "'Inter',sans-serif", fontSize: "12px", color: "rgba(239,231,214,0.70)", textDecoration: "none", transition: "color .18s", wordBreak: "break-all" }}
+                        onMouseEnter={(e) => (e.currentTarget.style.color = "#FCB019")}
+                        onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(239,231,214,0.70)")}
+                      >
+                        {c.val}
+                      </a>
+                    ) : (
+                      <span style={{ fontFamily: "'Inter',sans-serif", fontSize: "12px", color: "rgba(239,231,214,0.55)" }}>{c.val}</span>
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
         </div>
-        {/* Bottom border */}
-        <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "1px", background: "rgba(252,176,25,0.10)" }} />
       </section>
 
       {/* ══════════════════════════════════════
           PROFILE STRIP — Thilaga Segaran
       ══════════════════════════════════════ */}
       <section style={{ backgroundColor: "#0F0C08", borderBottom: "1px solid rgba(252,176,25,0.10)" }}>
-        <div style={{ maxWidth: MAX, margin: "0 auto", padding: `28px ${C}`, display: "flex", alignItems: "center", justifyContent: "space-between", gap: "32px", flexWrap: "wrap" }}>
+        <div style={{ maxWidth: MAX, margin: "0 auto", padding: `18px ${C}`, display: "flex", alignItems: "center", justifyContent: "space-between", gap: "24px", flexWrap: "wrap" }}>
           {/* Left — identity */}
-          <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
             {/* Avatar */}
-            <div style={{ width: "56px", height: "56px", borderRadius: "50%", border: "1.5px solid rgba(252,176,25,0.35)", overflow: "hidden", flexShrink: 0, background: "rgba(252,176,25,0.08)" }}>
+            <div style={{ width: "48px", height: "48px", borderRadius: "50%", border: "1.5px solid rgba(252,176,25,0.35)", overflow: "hidden", flexShrink: 0, background: "rgba(252,176,25,0.08)" }}>
               <img src={imgThilaga} alt="Thilaga Segaran" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }} />
             </div>
             <div>
-              <div style={{ fontFamily: "'Fraunces',serif", fontSize: "17px", color: "#EFE7D6", lineHeight: 1.2, marginBottom: "3px" }}>Thilaga Segaran</div>
-              <div style={{ fontFamily: "'Inter',sans-serif", fontSize: "9px", letterSpacing: "1.5px", textTransform: "uppercase", color: "rgba(252,176,25,0.55)" }}>ACCA Qualified · Founder, Just Accounting</div>
+              <div style={{ fontFamily: "'Fraunces',serif", fontSize: "16px", color: "#EFE7D6", lineHeight: 1.2, marginBottom: "2px" }}>Thilaga Segaran</div>
+              <div style={{ fontFamily: "'Inter',sans-serif", fontSize: "8.5px", letterSpacing: "1.5px", textTransform: "uppercase", color: "rgba(252,176,25,0.55)" }}>ACCA Qualified · Founder, Just Accounting</div>
             </div>
           </div>
           {/* Centre — bio */}
-          <p style={{ fontFamily: "'Inter',sans-serif", fontSize: "13px", lineHeight: 1.65, color: "rgba(239,231,214,0.40)", maxWidth: "440px", margin: 0, flex: "1 1 320px" }}>
+          <p style={{ fontFamily: "'Inter',sans-serif", fontSize: "12.5px", lineHeight: 1.6, color: "rgba(239,231,214,0.40)", maxWidth: "420px", margin: 0, flex: "1 1 280px" }}>
             "I help business owners stay organised, compliant, and stress-free by handling their day-to-day bookkeeping. No hidden fees. Just reliable, personal support."
           </p>
           {/* Right — socials + Calendly */}
           <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
             <a href="https://www.linkedin.com/in/thilagasegaran" target="_blank" rel="noopener noreferrer"
-              style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "36px", height: "36px", border: "1px solid rgba(239,231,214,0.14)", color: "rgba(239,231,214,0.50)", textDecoration: "none", transition: "border-color .18s, color .18s" }}
+              style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "34px", height: "34px", border: "1px solid rgba(239,231,214,0.14)", color: "rgba(239,231,214,0.50)", textDecoration: "none", transition: "border-color .18s, color .18s" }}
               onMouseEnter={e => { e.currentTarget.style.borderColor = "#FCB019"; e.currentTarget.style.color = "#FCB019"; }}
               onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(239,231,214,0.14)"; e.currentTarget.style.color = "rgba(239,231,214,0.50)"; }}
               title="LinkedIn"
-            ><Linkedin size={14} /></a>
+            ><Linkedin size={13} /></a>
             <a href="mailto:ts.justaccount@mail.co.uk"
-              style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "36px", height: "36px", border: "1px solid rgba(239,231,214,0.14)", color: "rgba(239,231,214,0.50)", textDecoration: "none", transition: "border-color .18s, color .18s" }}
+              style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "34px", height: "34px", border: "1px solid rgba(239,231,214,0.14)", color: "rgba(239,231,214,0.50)", textDecoration: "none", transition: "border-color .18s, color .18s" }}
               onMouseEnter={e => { e.currentTarget.style.borderColor = "#FCB019"; e.currentTarget.style.color = "#FCB019"; }}
               onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(239,231,214,0.14)"; e.currentTarget.style.color = "rgba(239,231,214,0.50)"; }}
               title="Email"
-            ><Mail size={14} /></a>
+            ><Mail size={13} /></a>
             <a href="tel:+447352463262"
-              style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "36px", height: "36px", border: "1px solid rgba(239,231,214,0.14)", color: "rgba(239,231,214,0.50)", textDecoration: "none", transition: "border-color .18s, color .18s" }}
+              style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "34px", height: "34px", border: "1px solid rgba(239,231,214,0.14)", color: "rgba(239,231,214,0.50)", textDecoration: "none", transition: "border-color .18s, color .18s" }}
               onMouseEnter={e => { e.currentTarget.style.borderColor = "#FCB019"; e.currentTarget.style.color = "#FCB019"; }}
               onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(239,231,214,0.14)"; e.currentTarget.style.color = "rgba(239,231,214,0.50)"; }}
               title="Phone"
-            ><Phone size={14} /></a>
-            <div style={{ width: "1px", height: "28px", background: "rgba(239,231,214,0.10)", margin: "0 4px" }} />
+            ><Phone size={13} /></a>
+            <div style={{ width: "1px", height: "26px", background: "rgba(239,231,214,0.10)", margin: "0 2px" }} />
             <a href="https://calendly.com/ts-justaccount" target="_blank" rel="noopener noreferrer"
-              style={{ display: "inline-flex", alignItems: "center", gap: "7px", height: "36px", padding: "0 18px", background: "#FCB019", color: "#17140F", fontFamily: "'Inter',sans-serif", fontSize: "10.5px", fontWeight: 700, textDecoration: "none", letterSpacing: "0.5px", textTransform: "uppercase", transition: "opacity .18s" }}
+              style={{ display: "inline-flex", alignItems: "center", gap: "6px", height: "34px", padding: "0 16px", background: "#FCB019", color: "#17140F", fontFamily: "'Inter',sans-serif", fontSize: "10px", fontWeight: 700, textDecoration: "none", letterSpacing: "0.5px", textTransform: "uppercase", transition: "opacity .18s" }}
               onMouseEnter={e => (e.currentTarget.style.opacity = "0.85")}
               onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
-            ><CalendarDays size={12} /> Book Free Consultation</a>
+            ><CalendarDays size={11} /> Book Free Consultation</a>
           </div>
         </div>
       </section>
@@ -200,32 +219,32 @@ function ContactPage() {
       {/* ══════════════════════════════════════
           FORM + SIDEBAR
       ══════════════════════════════════════ */}
-      <section style={{ position: "relative", backgroundColor: "#17140F", overflow: "hidden" }}>
+      <section style={{ position: "relative", backgroundColor: "#17140F", overflow: "clip" }}>
         <div style={{ position: "absolute", inset: 0, backgroundImage: `url(${imgForm})`, backgroundSize: "cover", backgroundPosition: "center", opacity: 0.07 }} />
         <div style={{ position: "absolute", inset: 0, background: "rgba(23,20,15,0.88)" }} />
 
-        <div style={{ position: "relative", zIndex: 1, maxWidth: MAX, margin: "0 auto", padding: `clamp(56px,8vh,84px) ${C}` }}>
+        <div style={{ position: "relative", zIndex: 1, maxWidth: MAX, margin: "0 auto", padding: `clamp(36px,5vh,60px) ${C}` }}>
           <div style={{ display: "grid", gridTemplateColumns: "1.55fr 1fr", gap: "clamp(32px,4.5vw,64px)", alignItems: "start" }}>
 
-            {/* ── FORM PANEL ── */}
-            <div style={{ borderTop: "2px solid #FCB019", borderLeft: "1px solid rgba(252,176,25,0.10)", borderRight: "1px solid rgba(252,176,25,0.10)", borderBottom: "1px solid rgba(252,176,25,0.10)", background: "rgba(15,12,8,0.55)" }}>
+            {/* ── FORM PANEL (Warm Faded Cream Floating Card) ── */}
+            <div style={{ position: "sticky", top: "24px", zIndex: 10, borderTop: "3px solid #FCB019", borderLeft: "1px solid rgba(23,20,15,0.12)", borderRight: "1px solid rgba(23,20,15,0.12)", borderBottom: "1px solid rgba(23,20,15,0.12)", background: "#F3EDE2", boxShadow: "0 24px 64px rgba(0,0,0,0.45), 0 2px 10px rgba(0,0,0,0.08)" }}>
               {sent ? (
                 <div style={{ padding: "64px 40px", textAlign: "center" }}>
-                  <div style={{ width: "54px", height: "54px", border: "1px solid #FCB019", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 24px" }}>
-                    <CheckCircle2 size={22} color="#FCB019" />
+                  <div style={{ width: "54px", height: "54px", border: "1px solid #FCB019", background: "rgba(252,176,25,0.12)", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 24px" }}>
+                    <CheckCircle2 size={24} color="#996200" />
                   </div>
-                  <h2 style={{ fontFamily: "'Fraunces',serif", fontSize: "28px", color: "#EFE7D6", marginBottom: "14px" }}>Message received.</h2>
-                  <p style={{ fontFamily: "'Inter',sans-serif", fontSize: "14px", lineHeight: 1.75, color: "rgba(239,231,214,0.48)", maxWidth: "360px", margin: "0 auto 28px" }}>
+                  <h2 style={{ fontFamily: "'Fraunces',serif", fontSize: "28px", color: "#17140F", fontWeight: 700, marginBottom: "14px" }}>Message received.</h2>
+                  <p style={{ fontFamily: "'Inter',sans-serif", fontSize: "14px", lineHeight: 1.75, color: "rgba(23,20,15,0.65)", maxWidth: "360px", margin: "0 auto 28px" }}>
                     Thank you for getting in touch. We will respond within one working day — usually much sooner. If your matter is urgent, please call us directly.
                   </p>
-                  <a href="tel:+447352463262" style={{ fontFamily: "'Inter',sans-serif", fontSize: "12px", color: "#FCB019", textDecoration: "none", letterSpacing: "1px" }}>+44 7352 463262</a>
+                  <a href="tel:+447352463262" style={{ fontFamily: "'Inter',sans-serif", fontSize: "13px", fontWeight: 700, color: "#996200", textDecoration: "none", letterSpacing: "0.5px" }}>+44 7352 463262</a>
                 </div>
               ) : (
-                <div style={{ padding: "40px 40px 40px" }}>
+                <div style={{ padding: "40px 40px 36px" }}>
                   {/* Form header */}
-                  <p style={{ fontFamily: "'Inter',sans-serif", fontSize: "9px", letterSpacing: "2.2px", textTransform: "uppercase", color: "#FCB019", marginBottom: "10px" }}>ENQUIRY FORM</p>
-                  <h2 style={{ fontFamily: "'Fraunces',serif", fontSize: "clamp(20px,2.2vw,26px)", color: "#EFE7D6", marginBottom: "6px", lineHeight: 1.1 }}>Tell us about your business</h2>
-                  <p style={{ fontFamily: "'Inter',sans-serif", fontSize: "13px", lineHeight: 1.65, color: "rgba(239,231,214,0.38)", marginBottom: "32px", borderBottom: "1px solid rgba(252,176,25,0.08)", paddingBottom: "28px" }}>
+                  <p style={{ fontFamily: "'Inter',sans-serif", fontSize: "9px", letterSpacing: "2.2px", textTransform: "uppercase", color: "#996200", fontWeight: 700, marginBottom: "8px" }}>ENQUIRY FORM</p>
+                  <h2 style={{ fontFamily: "'Fraunces',serif", fontSize: "clamp(22px,2.4vw,28px)", color: "#17140F", fontWeight: 700, marginBottom: "6px", lineHeight: 1.15 }}>Tell us about your business</h2>
+                  <p style={{ fontFamily: "'Inter',sans-serif", fontSize: "13.5px", lineHeight: 1.65, color: "rgba(23,20,15,0.60)", marginBottom: "28px", borderBottom: "1px solid rgba(23,20,15,0.08)", paddingBottom: "22px" }}>
                     Give us some context and we'll come back with exactly how we can help — and a written quote if relevant.
                   </p>
 
@@ -234,11 +253,11 @@ function ContactPage() {
                     {/* Row 1 */}
                     <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
                       <div className="ja-field">
-                        <label htmlFor="name" className="ja-label">Your name <span style={{ color: "#FCB019" }}>*</span></label>
+                        <label htmlFor="name" className="ja-label">Your name <span style={{ color: "#B87B00" }}>*</span></label>
                         <input className="ja-input" id="name" type="text" required placeholder="Full name" />
                       </div>
                       <div className="ja-field">
-                        <label htmlFor="email" className="ja-label">Email address <span style={{ color: "#FCB019" }}>*</span></label>
+                        <label htmlFor="email" className="ja-label">Email address <span style={{ color: "#B87B00" }}>*</span></label>
                         <input className="ja-input" id="email" type="email" required placeholder="you@yourbusiness.co.uk" />
                       </div>
                     </div>
@@ -257,7 +276,7 @@ function ContactPage() {
 
                     {/* Enquiry type */}
                     <div className="ja-field">
-                      <label htmlFor="type" className="ja-label">I am a… <span style={{ color: "#FCB019" }}>*</span></label>
+                      <label htmlFor="type" className="ja-label">I am a… <span style={{ color: "#B87B00" }}>*</span></label>
                       <select className="ja-input" id="type" style={{ cursor: "pointer" }}>
                         <option value="">Select one</option>
                         <option value="business">Business owner needing bookkeeping support</option>
@@ -282,23 +301,40 @@ function ContactPage() {
 
                     {/* Message */}
                     <div className="ja-field">
-                      <label htmlFor="msg" className="ja-label">How can we help? <span style={{ color: "#FCB019" }}>*</span></label>
+                      <label htmlFor="msg" className="ja-label">How can we help? <span style={{ color: "#B87B00" }}>*</span></label>
                       <textarea className="ja-textarea" id="msg" required
                         placeholder="Tell us about your business, the services you need, any deadlines we should be aware of, and any other context that would help us respond usefully..."
                       />
                     </div>
 
                     {/* Submit row */}
-                    <div style={{ display: "flex", alignItems: "center", gap: "20px", paddingTop: "4px", borderTop: "1px solid rgba(252,176,25,0.08)", marginTop: "4px", flexWrap: "wrap" }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: "20px", paddingTop: "4px", borderTop: "1px solid rgba(23,20,15,0.08)", marginTop: "4px", flexWrap: "wrap" }}>
                       <button type="submit" id="contact-submit"
                         style={{ display: "inline-flex", alignItems: "center", gap: "9px", height: "48px", padding: "0 28px", background: "#FCB019", color: "#17140F", fontFamily: "'Inter',sans-serif", fontSize: "12.5px", fontWeight: 700, border: "none", cursor: "pointer", letterSpacing: "0.5px", textTransform: "uppercase", transition: "opacity .18s, transform .18s", flexShrink: 0 }}
                         onMouseEnter={e => { e.currentTarget.style.opacity = "0.88"; e.currentTarget.style.transform = "translateY(-1px)"; }}
                         onMouseLeave={e => { e.currentTarget.style.opacity = "1"; e.currentTarget.style.transform = "translateY(0)"; }}
                       >Send enquiry <ArrowRight size={13} /></button>
-                      <p style={{ fontFamily: "'Inter',sans-serif", fontSize: "10.5px", color: "rgba(239,231,214,0.24)", margin: 0, lineHeight: 1.5 }}>
+                      <p style={{ fontFamily: "'Inter',sans-serif", fontSize: "11px", color: "rgba(23,20,15,0.50)", margin: 0, lineHeight: 1.5 }}>
                         Your details are never shared with third parties.<br />
                         We will respond within one working day.
                       </p>
+                    </div>
+
+                    {/* Security & Reassurance strip */}
+                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(130px, 1fr))", gap: "14px", borderTop: "1px solid rgba(23,20,15,0.08)", paddingTop: "18px", marginTop: "8px" }}>
+                      {[
+                        { title: "Strict NDA Protection", desc: "Signed before file review" },
+                        { title: "ACCA Standards", desc: "Qualified UK oversight" },
+                        { title: "Guaranteed Fixed Fees", desc: "Agreed prior to work" },
+                      ].map(g => (
+                        <div key={g.title} style={{ display: "flex", gap: "7px", alignItems: "flex-start" }}>
+                          <Shield size={12} color="#996200" style={{ flexShrink: 0, marginTop: "2px" }} />
+                          <div>
+                            <div style={{ fontFamily: "'Inter',sans-serif", fontSize: "10.5px", fontWeight: 700, color: "#17140F", lineHeight: 1.25 }}>{g.title}</div>
+                            <div style={{ fontFamily: "'Inter',sans-serif", fontSize: "9.5px", color: "rgba(23,20,15,0.55)", marginTop: "2px" }}>{g.desc}</div>
+                          </div>
+                        </div>
+                      ))}
                     </div>
 
                   </form>
@@ -309,31 +345,28 @@ function ContactPage() {
             {/* ── SIDEBAR PANELS ── */}
             <div style={{ display: "flex", flexDirection: "column", gap: "1px", backgroundColor: "rgba(252,176,25,0.07)" }}>
 
-              {/* Contact info */}
-              <div style={{ background: "rgba(15,12,8,0.60)", padding: "28px 26px 24px" }}>
-                <p style={{ fontFamily: "'Inter',sans-serif", fontSize: "8.5px", letterSpacing: "2px", textTransform: "uppercase", color: "rgba(252,176,25,0.50)", marginBottom: "20px" }}>DIRECT CONTACT</p>
-                <div style={{ display: "flex", flexDirection: "column", gap: "0" }}>
+              {/* Contact info - compact format */}
+              <div style={{ background: "rgba(15,12,8,0.60)", padding: "20px 22px" }}>
+                <p style={{ fontFamily: "'Inter',sans-serif", fontSize: "8.5px", letterSpacing: "2px", textTransform: "uppercase", color: "rgba(252,176,25,0.50)", marginBottom: "14px" }}>DIRECT CHANNELS</p>
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px" }}>
                   {[
-                    { icon: Phone,  label: "Phone",        val: "+44 7352 463262",            href: "tel:+447352463262" },
-                    { icon: Mail,   label: "Email",        val: "ts.justaccount@mail.co.uk",  href: "mailto:ts.justaccount@mail.co.uk" },
-                    { icon: Clock,  label: "Office Hours", val: "Mon – Fri · 9am – 5:30pm",   href: null },
-                    { icon: MapPin, label: "Location",     val: "United Kingdom · Fully remote", href: null },
-                  ].map((c, i) => (
-                    <div key={c.label}>
-                      {i > 0 && <div style={{ height: "1px", background: "rgba(252,176,25,0.06)", margin: "14px 0" }} />}
-                      <div style={{ display: "flex", gap: "12px", alignItems: "flex-start" }}>
-                        <c.icon size={12} color="rgba(252,176,25,0.55)" strokeWidth={1.5} style={{ marginTop: "3px", flexShrink: 0 }} />
-                        <div>
-                          <div style={{ fontFamily: "'Inter',sans-serif", fontSize: "8px", letterSpacing: "1.5px", textTransform: "uppercase", color: "rgba(239,231,214,0.26)", marginBottom: "3px" }}>{c.label}</div>
-                          {c.href
-                            ? <a href={c.href} style={{ fontFamily: "'Inter',sans-serif", fontSize: "12.5px", color: "rgba(239,231,214,0.62)", textDecoration: "none", transition: "color .18s" }}
-                                onMouseEnter={e => (e.currentTarget.style.color = "#FCB019")}
-                                onMouseLeave={e => (e.currentTarget.style.color = "rgba(239,231,214,0.62)")}
-                              >{c.val}</a>
-                            : <div style={{ fontFamily: "'Inter',sans-serif", fontSize: "12.5px", color: "rgba(239,231,214,0.55)" }}>{c.val}</div>
-                          }
-                        </div>
+                    { icon: Phone,        label: "Phone",    val: "+44 7352 463262", href: "tel:+447352463262" },
+                    { icon: Mail,         label: "Email",    val: "ts.justaccount@mail.co.uk", href: "mailto:ts.justaccount@mail.co.uk" },
+                    { icon: Linkedin,     label: "LinkedIn", val: "Thilaga Segaran", href: "https://www.linkedin.com/in/thilagasegaran" },
+                    { icon: ExternalLink, label: "Linktree", val: "ts.justaccount", href: "https://linktr.ee/ts.justaccount" },
+                  ].map((c) => (
+                    <div key={c.label} style={{ background: "rgba(239,231,214,0.03)", border: "1px solid rgba(252,176,25,0.08)", padding: "10px 12px" }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "3px" }}>
+                        <c.icon size={10} color="#FCB019" strokeWidth={1.5} />
+                        <span style={{ fontFamily: "'Inter',sans-serif", fontSize: "8px", letterSpacing: "1px", textTransform: "uppercase", color: "rgba(239,231,214,0.30)" }}>{c.label}</span>
                       </div>
+                      <a href={c.href} target={c.href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer"
+                        style={{ fontFamily: "'Inter',sans-serif", fontSize: "11px", color: "rgba(239,231,214,0.65)", textDecoration: "none", transition: "color .18s", display: "block", textOverflow: "ellipsis", overflow: "hidden", whiteSpace: "nowrap" }}
+                        onMouseEnter={(e) => (e.currentTarget.style.color = "#FCB019")}
+                        onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(239,231,214,0.65)")}
+                      >
+                        {c.val}
+                      </a>
                     </div>
                   ))}
                 </div>
