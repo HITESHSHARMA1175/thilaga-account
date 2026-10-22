@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, useRef } from "react";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import {
@@ -50,6 +51,9 @@ const FIELD_CSS = `
   }
   .ja-textarea::placeholder { color:rgba(239,231,214,0.22); }
   .ja-textarea:focus { border-color:#FCB019; background:rgba(252,176,25,0.04); }
+  @media (max-width: 1100px) {
+    .contact-hero-lottie { display:none; }
+  }
 `;
 
 function ContactPage() {
@@ -67,6 +71,27 @@ function ContactPage() {
       <section style={{ position: "relative", overflow: "hidden", backgroundColor: "#0F0C08" }}>
         <div style={{ position: "absolute", inset: 0, backgroundImage: `url(${imgHero})`, backgroundSize: "cover", backgroundPosition: "center 45%", opacity: 0.10 }} />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(165deg, rgba(15,12,8,0.97) 0%, rgba(15,12,8,0.82) 60%, rgba(15,12,8,0.98) 100%)" }} />
+
+        <div
+          className="contact-hero-lottie"
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            zIndex: 0,
+            top: "clamp(96px, 15vh, 170px)",
+            right: "max(3vw, calc((100vw - 1280px) / 2 + 36px))",
+            width: "clamp(300px, 34vw, 470px)",
+            height: "clamp(300px, 34vw, 470px)",
+            opacity: 0.9,
+            pointerEvents: "none",
+          }}
+        >
+          <DotLottieReact
+            src="https://lottie.host/12154a33-14d6-4a7b-a17a-24125c7503b0/0scJpnXfxC.lottie"
+            loop
+            autoplay
+          />
+        </div>
 
         <div style={{ position: "relative", zIndex: 1, maxWidth: MAX, margin: "0 auto", padding: `clamp(60px,9vh,100px) ${C}` }}>
 
