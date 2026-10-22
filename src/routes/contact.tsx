@@ -83,7 +83,7 @@ function ContactPage() {
           </div>
 
           {/* 2-Column Hero: Headline + Aligned Lottie Arrow + Quick Contact Cards */}
-          <div style={{ display: "grid", gridTemplateColumns: "1.2fr 1fr", gap: "clamp(32px,4vw,64px)", alignItems: "center", position: "relative" }}>
+          <div className="ja-grid-1-2" style={{ display: "grid", gridTemplateColumns: "1.2fr 1fr", gap: "clamp(32px,4vw,64px)", alignItems: "center", position: "relative" }}>
             <div>
               <h1 style={{ margin: "0 0 16px", lineHeight: 1.04 }}>
                 <div style={{ fontFamily: "'Fraunces',serif", display: "flex", flexWrap: "wrap", gap: "0 0.12em", alignItems: "baseline" }}>
@@ -135,7 +135,7 @@ function ContactPage() {
               </div>
 
               {/* Direct contact cards grid */}
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px" }}>
+              <div className="contact-cards-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px" }}>
                 {[
                   { icon: Phone, label: "DIRECT CALL", val: "+44 7352 463262", href: "tel:+447352463262" },
                   { icon: Mail, label: "DIRECT EMAIL", val: "ts.justaccount@mail.co.uk", href: "mailto:ts.justaccount@mail.co.uk" },
@@ -224,10 +224,10 @@ function ContactPage() {
         <div style={{ position: "absolute", inset: 0, background: "rgba(23,20,15,0.88)" }} />
 
         <div style={{ position: "relative", zIndex: 1, maxWidth: MAX, margin: "0 auto", padding: `clamp(36px,5vh,60px) ${C}` }}>
-          <div style={{ display: "grid", gridTemplateColumns: "1.55fr 1fr", gap: "clamp(32px,4.5vw,64px)", alignItems: "start" }}>
+          <div className="ja-grid-form" style={{ display: "grid", gridTemplateColumns: "1.55fr 1fr", gap: "clamp(32px,4.5vw,64px)", alignItems: "start" }}>
 
             {/* ── FORM PANEL (Warm Faded Cream Floating Card) ── */}
-            <div style={{ position: "sticky", top: "24px", zIndex: 10, borderTop: "3px solid #FCB019", borderLeft: "1px solid rgba(23,20,15,0.12)", borderRight: "1px solid rgba(23,20,15,0.12)", borderBottom: "1px solid rgba(23,20,15,0.12)", background: "#F3EDE2", boxShadow: "0 24px 64px rgba(0,0,0,0.45), 0 2px 10px rgba(0,0,0,0.08)" }}>
+            <div className="ja-form-sticky" style={{ position: "sticky", top: "24px", zIndex: 10, borderTop: "3px solid #FCB019", borderLeft: "1px solid rgba(23,20,15,0.12)", borderRight: "1px solid rgba(23,20,15,0.12)", borderBottom: "1px solid rgba(23,20,15,0.12)", background: "#F3EDE2", boxShadow: "0 24px 64px rgba(0,0,0,0.45), 0 2px 10px rgba(0,0,0,0.08)" }}>
               {sent ? (
                 <div style={{ padding: "64px 40px", textAlign: "center" }}>
                   <div style={{ width: "54px", height: "54px", border: "1px solid #FCB019", background: "rgba(252,176,25,0.12)", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 24px" }}>
@@ -251,7 +251,7 @@ function ContactPage() {
                   <form ref={formRef} onSubmit={e => { e.preventDefault(); setSent(true); }} style={{ display: "flex", flexDirection: "column", gap: "22px" }}>
 
                     {/* Row 1 */}
-                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+                    <div className="ja-form-row-2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
                       <div className="ja-field">
                         <label htmlFor="name" className="ja-label">Your name <span style={{ color: "#B87B00" }}>*</span></label>
                         <input className="ja-input" id="name" type="text" required placeholder="Full name" />
@@ -263,7 +263,7 @@ function ContactPage() {
                     </div>
 
                     {/* Row 2 */}
-                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+                    <div className="ja-form-row-2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
                       <div className="ja-field">
                         <label htmlFor="phone" className="ja-label">Phone number</label>
                         <input className="ja-input" id="phone" type="tel" placeholder="+44 7xxx xxxxxx" />

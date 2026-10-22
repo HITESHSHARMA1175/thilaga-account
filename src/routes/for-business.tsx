@@ -69,7 +69,7 @@ function BusinessPage() {
         </div>
 
         {/* Bottom row — circles + tagline */}
-        <div style={{ position: "relative", zIndex: 1, maxWidth: MAX, margin: "0 auto", width: "100%", display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: "32px" }}>
+        <div className="ja-circle-hero-wrap" style={{ position: "relative", zIndex: 1, maxWidth: MAX, margin: "0 auto", width: "100%", display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: "32px" }}>
           <div style={{ display: "flex", alignItems: "center" }}>
             <Link to="/contact" id="business-hero-cta"
               style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "clamp(106px,11.5vw,148px)", height: "clamp(106px,11.5vw,148px)", borderRadius: "50%", background: "#FCB019", color: "#17140F", fontFamily: "'Inter',sans-serif", fontSize: "clamp(8px,0.85vw,10px)", fontWeight: 700, letterSpacing: "2px", textTransform: "uppercase", textDecoration: "none", textAlign: "center", lineHeight: 1.4, zIndex: 2, position: "relative", transition: "transform 0.22s" }}
@@ -171,7 +171,7 @@ function BusinessPage() {
                 { step: "03", title: "We get access", desc: "We connect to your accounting software (or help you set it up if you don't have one). We review your existing records and get everything organised." },
                 { step: "04", title: "Ongoing bookkeeping", desc: "Your records are kept up to date on an agreed schedule. VAT returns are prepared, filed on time, and your accountant gets everything they need at year-end." },
               ].map((p, i) => (
-                <div key={p.step} style={{ paddingRight: "28px", paddingLeft: i > 0 ? "28px" : "0", borderLeft: i > 0 ? "1px solid rgba(23,20,15,0.10)" : "none" }}>
+                <div key={p.step} className="process-step-item" style={{ paddingRight: "28px", paddingLeft: i > 0 ? "28px" : "0", borderLeft: i > 0 ? "1px solid rgba(23,20,15,0.10)" : "none" }}>
                   <div style={{ width: "28px", height: "28px", border: "1px solid #FCB019", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "'Inter',sans-serif", fontSize: "9px", color: "#8A5600", marginBottom: "18px" }}>{p.step}</div>
                   <h4 style={{ fontFamily: "'Fraunces',serif", fontSize: "16px", color: "#17140F", marginBottom: "10px", lineHeight: 1.2 }}>{p.title}</h4>
                   <p style={{ fontFamily: "'Inter',sans-serif", fontSize: "12.5px", lineHeight: 1.70, color: "rgba(23,20,15,0.55)", margin: 0 }}>{p.desc}</p>
@@ -181,7 +181,8 @@ function BusinessPage() {
           </div>
 
           {/* Pricing comparison */}
-          <div style={{ border: "1px solid rgba(23,20,15,0.10)", borderTop: "2px solid #FCB019" }}>
+          <div className="ja-table-scroll">
+            <div className="ja-table-inner" style={{ border: "1px solid rgba(23,20,15,0.10)", borderTop: "2px solid #FCB019" }}>
             <div style={{ padding: "18px 28px", borderBottom: "1px solid rgba(23,20,15,0.08)", display: "grid", gridTemplateColumns: "2fr 1fr 1fr", gap: "16px" }}>
               <span style={{ fontFamily: "'Inter',sans-serif", fontSize: "9px", letterSpacing: "1.8px", textTransform: "uppercase", color: "rgba(23,20,15,0.35)" }}>WHAT YOU GET WITH JUST ACCOUNTING</span>
               <span style={{ fontFamily: "'Inter',sans-serif", fontSize: "9px", letterSpacing: "1.8px", textTransform: "uppercase", color: "#8A5600", textAlign: "center" }}>JUST ACCOUNTING</span>
@@ -202,6 +203,7 @@ function BusinessPage() {
                 <span style={{ fontFamily: "'Inter',sans-serif", fontSize: "12px", color: "rgba(23,20,15,0.35)", textAlign: "center" }}>{them}</span>
               </div>
             ))}
+            </div>
           </div>
 
         </div>
@@ -235,7 +237,7 @@ function BusinessPage() {
           </div>
 
           {/* Service cards 2×4 */}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: "1px", backgroundColor: "rgba(252,176,25,0.08)", marginBottom: "56px" }}>
+          <div className="ja-grid-2" style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: "1px", backgroundColor: "rgba(252,176,25,0.08)", marginBottom: "56px" }}>
             {[
               {
                 icon: CreditCard, num: "01",
@@ -315,7 +317,7 @@ function BusinessPage() {
                 Already using Xero, Sage, QuickBooks, or FreeAgent? We connect to your existing account and work within your system — no migration, no disruption. If you do not yet have an accounting platform, we can help you choose the right one and get it set up correctly from day one.
               </p>
             </div>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1px", backgroundColor: "rgba(252,176,25,0.08)" }}>
+            <div className="ja-scorecard-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1px", backgroundColor: "rgba(252,176,25,0.08)" }}>
               {software.map(sw => (
                 <div key={sw} style={{ background: "rgba(23,20,15,0.70)", padding: "20px 22px", display: "flex", alignItems: "center", gap: "10px" }}>
                   <CheckCircle2 size={13} color="#FCB019" />
@@ -400,7 +402,7 @@ function BusinessPage() {
               </div>
               <div style={{ background: "rgba(23,20,15,0.60)", padding: "24px 28px" }}>
                 <p style={{ fontFamily: "'Inter',sans-serif", fontSize: "9px", letterSpacing: "2px", textTransform: "uppercase", color: "rgba(252,176,25,0.55)", marginBottom: "16px" }}>ALWAYS INCLUDED</p>
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px" }}>
+                <div className="ja-scorecard-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px" }}>
                   {["Fixed fee pricing", "MTD-compliant VAT", "Same bookkeeper always", "Works with your accountant", "Direct communication", "ACCA-qualified work"].map(item => (
                     <div key={item} style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                       <CheckCircle2 size={11} color="#FCB019" />

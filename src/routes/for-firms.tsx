@@ -69,7 +69,7 @@ function FirmsPage() {
         </div>
 
         {/* Bottom row */}
-        <div style={{ position: "relative", zIndex: 1, maxWidth: MAX, margin: "0 auto", width: "100%", display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: "32px" }}>
+        <div className="ja-circle-hero-wrap" style={{ position: "relative", zIndex: 1, maxWidth: MAX, margin: "0 auto", width: "100%", display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: "32px" }}>
           {/* Overlapping circles */}
           <div style={{ display: "flex", alignItems: "center" }}>
             <Link to="/contact" id="firms-hero-cta"
@@ -127,7 +127,7 @@ function FirmsPage() {
           </div>
 
           {/* Feature cards 2×2 */}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: "1px", backgroundColor: "rgba(23,20,15,0.10)", marginBottom: "64px" }}>
+          <div className="ja-grid-2" style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: "1px", backgroundColor: "rgba(23,20,15,0.10)", marginBottom: "64px" }}>
             {[
               {
                 icon: Handshake, num: "01",
@@ -179,7 +179,7 @@ function FirmsPage() {
                 { step: "03", title: "Onboarding", desc: "We are given access to your chosen software. We review any existing records, ask any clarifying questions, and begin work — typically within 48 hours of agreement." },
                 { step: "04", title: "Ongoing delivery", desc: "Work is delivered to an agreed schedule. You review and approve. We communicate directly, flag anything unusual, and operate as part of your team." },
               ].map((p, i) => (
-                <div key={p.step} style={{ paddingRight: "28px", paddingLeft: i > 0 ? "28px" : "0", borderLeft: i > 0 ? "1px solid rgba(23,20,15,0.10)" : "none" }}>
+                <div key={p.step} className="process-step-item" style={{ paddingRight: "28px", paddingLeft: i > 0 ? "28px" : "0", borderLeft: i > 0 ? "1px solid rgba(23,20,15,0.10)" : "none" }}>
                   <div style={{ width: "28px", height: "28px", border: "1px solid #FCB019", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "'Inter',sans-serif", fontSize: "9px", color: "#8A5600", marginBottom: "18px" }}>{p.step}</div>
                   <h4 style={{ fontFamily: "'Fraunces',serif", fontSize: "16px", color: "#17140F", marginBottom: "10px", lineHeight: 1.2 }}>{p.title}</h4>
                   <p style={{ fontFamily: "'Inter',sans-serif", fontSize: "12.5px", lineHeight: 1.70, color: "rgba(23,20,15,0.55)", margin: 0 }}>{p.desc}</p>
@@ -189,27 +189,29 @@ function FirmsPage() {
           </div>
 
           {/* Comparison table */}
-          <div style={{ border: "1px solid rgba(23,20,15,0.10)", borderTop: "2px solid #FCB019" }}>
-            <div style={{ padding: "18px 28px", borderBottom: "1px solid rgba(23,20,15,0.08)", display: "grid", gridTemplateColumns: "2fr 1fr 1fr", gap: "16px" }}>
-              <span style={{ fontFamily: "'Inter',sans-serif", fontSize: "9px", letterSpacing: "1.8px", textTransform: "uppercase", color: "rgba(23,20,15,0.35)" }}>HOW WE COMPARE</span>
-              <span style={{ fontFamily: "'Inter',sans-serif", fontSize: "9px", letterSpacing: "1.8px", textTransform: "uppercase", color: "#8A5600", textAlign: "center" }}>JUST ACCOUNTING</span>
-              <span style={{ fontFamily: "'Inter',sans-serif", fontSize: "9px", letterSpacing: "1.8px", textTransform: "uppercase", color: "rgba(23,20,15,0.30)", textAlign: "center" }}>TYPICAL OUTSOURCER</span>
-            </div>
-            {[
-              ["Dedicated single contact", "✓ Always Thilaga", "✗ Rotating teams"],
-              ["UK-based bookkeeper", "✓ 100% UK", "✗ Often offshore"],
-              ["NDA before first document", "✓ Standard practice", "✗ Often not offered"],
-              ["Fixed fee, agreed upfront", "✓ Always written", "✗ Often hourly / variable"],
-              ["White-label ready", "✓ Included", "✗ Usually charged extra"],
-              ["Direct communication", "✓ WhatsApp / email / phone", "✗ Ticketing systems"],
-              ["ACCA qualified", "✓ Yes", "✗ Not always"],
-            ].map(([label, us, them], i) => (
-              <div key={label} style={{ padding: "14px 28px", borderBottom: i < 6 ? "1px solid rgba(23,20,15,0.06)" : "none", display: "grid", gridTemplateColumns: "2fr 1fr 1fr", gap: "16px", alignItems: "center" }}>
-                <span style={{ fontFamily: "'Inter',sans-serif", fontSize: "13px", color: "rgba(23,20,15,0.65)" }}>{label}</span>
-                <span style={{ fontFamily: "'Inter',sans-serif", fontSize: "12px", fontWeight: 500, color: "#17140F", textAlign: "center" }}>{us}</span>
-                <span style={{ fontFamily: "'Inter',sans-serif", fontSize: "12px", color: "rgba(23,20,15,0.35)", textAlign: "center" }}>{them}</span>
+          <div className="ja-table-scroll">
+            <div className="ja-table-inner" style={{ border: "1px solid rgba(23,20,15,0.10)", borderTop: "2px solid #FCB019" }}>
+              <div style={{ padding: "18px 28px", borderBottom: "1px solid rgba(23,20,15,0.08)", display: "grid", gridTemplateColumns: "2fr 1fr 1fr", gap: "16px" }}>
+                <span style={{ fontFamily: "'Inter',sans-serif", fontSize: "9px", letterSpacing: "1.8px", textTransform: "uppercase", color: "rgba(23,20,15,0.35)" }}>HOW WE COMPARE</span>
+                <span style={{ fontFamily: "'Inter',sans-serif", fontSize: "9px", letterSpacing: "1.8px", textTransform: "uppercase", color: "#8A5600", textAlign: "center" }}>JUST ACCOUNTING</span>
+                <span style={{ fontFamily: "'Inter',sans-serif", fontSize: "9px", letterSpacing: "1.8px", textTransform: "uppercase", color: "rgba(23,20,15,0.30)", textAlign: "center" }}>TYPICAL OUTSOURCER</span>
               </div>
-            ))}
+              {[
+                ["Dedicated single contact", "✓ Always Thilaga", "✗ Rotating teams"],
+                ["UK-based bookkeeper", "✓ 100% UK", "✗ Often offshore"],
+                ["NDA before first document", "✓ Standard practice", "✗ Often not offered"],
+                ["Fixed fee, agreed upfront", "✓ Always written", "✗ Often hourly / variable"],
+                ["White-label ready", "✓ Included", "✗ Usually charged extra"],
+                ["Direct communication", "✓ WhatsApp / email / phone", "✗ Ticketing systems"],
+                ["ACCA qualified", "✓ Yes", "✗ Not always"],
+              ].map(([label, us, them], i) => (
+                <div key={label} style={{ padding: "14px 28px", borderBottom: i < 6 ? "1px solid rgba(23,20,15,0.06)" : "none", display: "grid", gridTemplateColumns: "2fr 1fr 1fr", gap: "16px", alignItems: "center" }}>
+                  <span style={{ fontFamily: "'Inter',sans-serif", fontSize: "13px", color: "rgba(23,20,15,0.65)" }}>{label}</span>
+                  <span style={{ fontFamily: "'Inter',sans-serif", fontSize: "12px", fontWeight: 500, color: "#17140F", textAlign: "center" }}>{us}</span>
+                  <span style={{ fontFamily: "'Inter',sans-serif", fontSize: "12px", color: "rgba(23,20,15,0.35)", textAlign: "center" }}>{them}</span>
+                </div>
+              ))}
+            </div>
           </div>
 
         </div>
@@ -244,7 +246,7 @@ function FirmsPage() {
           </div>
 
           {/* Service cards 2×2 */}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: "1px", backgroundColor: "rgba(252,176,25,0.08)", marginBottom: "56px" }}>
+          <div className="ja-grid-2" style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: "1px", backgroundColor: "rgba(252,176,25,0.08)", marginBottom: "56px" }}>
             {[
               {
                 icon: FileText, num: "01",
@@ -300,7 +302,7 @@ function FirmsPage() {
                 We do not ask you to migrate clients to a new platform. We are trained and experienced across all major UK cloud accounting platforms and will work within whichever system the client already uses — maintaining your own firm's file structure and coding conventions.
               </p>
             </div>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1px", backgroundColor: "rgba(252,176,25,0.08)" }}>
+            <div className="ja-scorecard-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1px", backgroundColor: "rgba(252,176,25,0.08)" }}>
               {software.map(sw => (
                 <div key={sw} style={{ background: "rgba(23,20,15,0.70)", padding: "20px 22px", display: "flex", alignItems: "center", gap: "10px" }}>
                   <CheckCircle2 size={13} color="#FCB019" />
@@ -385,7 +387,7 @@ function FirmsPage() {
               </div>
               <div style={{ background: "rgba(23,20,15,0.60)", padding: "24px 28px" }}>
                 <p style={{ fontFamily: "'Inter',sans-serif", fontSize: "9px", letterSpacing: "2px", textTransform: "uppercase", color: "rgba(252,176,25,0.55)", marginBottom: "16px" }}>ALWAYS INCLUDED</p>
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px" }}>
+                <div className="ja-scorecard-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px" }}>
                   {["NDA protection", "Fixed fee pricing", "White-label delivery", "Single point of contact", "Direct communication", "ACCA-qualified work"].map(item => (
                     <div key={item} style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                       <CheckCircle2 size={11} color="#FCB019" />

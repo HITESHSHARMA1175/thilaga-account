@@ -361,6 +361,7 @@ function TestimonialsPage() {
 
         {/* Bottom — Scorecard + Circular CTA */}
         <div
+          className="ja-circle-hero-wrap"
           style={{
             position: "relative",
             zIndex: 1,
@@ -376,6 +377,7 @@ function TestimonialsPage() {
         >
           {/* Metrics scorecard */}
           <div
+            className="ja-scorecard-grid"
             style={{
               display: "flex",
               gap: "1px",

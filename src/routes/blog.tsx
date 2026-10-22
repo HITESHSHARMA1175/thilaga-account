@@ -247,6 +247,7 @@ function BlogPage() {
 
         {/* Bottom — Focus Highlights + Circular CTA */}
         <div
+          className="ja-circle-hero-wrap"
           style={{
             position: "relative",
             zIndex: 1,
@@ -262,6 +263,7 @@ function BlogPage() {
         >
           {/* Topics strip */}
           <div
+            className="ja-scorecard-grid"
             style={{
               display: "flex",
               gap: "1px",

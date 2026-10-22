@@ -67,9 +67,9 @@ function AboutPage() {
         </div>
 
         {/* Bottom — credentials + tagline */}
-        <div style={{ position: "relative", zIndex: 1, maxWidth: MAX, margin: "0 auto", width: "100%", display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: "32px" }}>
+        <div className="ja-circle-hero-wrap" style={{ position: "relative", zIndex: 1, maxWidth: MAX, margin: "0 auto", width: "100%", display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: "32px" }}>
           {/* Credential pills */}
-          <div style={{ display: "flex", gap: "1px", backgroundColor: "rgba(252,176,25,0.10)" }}>
+          <div className="ja-scorecard-grid" style={{ display: "flex", gap: "1px", backgroundColor: "rgba(252,176,25,0.10)" }}>
             {[
               { val: "ACCA", sub: "Qualified" },
               { val: "10+", sub: "Years UK experience" },
@@ -134,7 +134,7 @@ function AboutPage() {
                 Pricing is agreed in writing before any work begins. We offer flexible arrangements for smaller and lower-turnover businesses, because we understand that a one-size-fits-all fee structure does not reflect the reality of running a small business.
               </p>
               {/* Credentials inline */}
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1px", backgroundColor: "rgba(23,20,15,0.10)" }}>
+              <div className="ja-scorecard-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1px", backgroundColor: "rgba(23,20,15,0.10)" }}>
                 {[
                   { icon: Award, label: "ACCA Qualified", detail: "Professional accounting qualification recognised globally" },
                   { icon: Clock, label: "10+ Years Experience", detail: "Inside UK accounting and bookkeeping practices" },
@@ -259,7 +259,7 @@ function AboutPage() {
             </div>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1px", backgroundColor: "rgba(252,176,25,0.08)" }}>
+          <div className="ja-grid-2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1px", backgroundColor: "rgba(252,176,25,0.08)" }}>
             {[
               {
                 icon: Briefcase, num: "01",
@@ -293,7 +293,7 @@ function AboutPage() {
           </div>
 
           {/* Commitment list */}
-          <div style={{ marginTop: "56px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(32px,4vw,64px)" }} className="commitment-grid">
+          <div style={{ marginTop: "56px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(32px,4vw,64px)" }} className="commitment-grid ja-grid-2">
             <div>
               <p style={{ fontFamily: "'Inter',sans-serif", fontSize: "9px", letterSpacing: "2.2px", textTransform: "uppercase", color: "#FCB019", marginBottom: "16px" }}>OUR COMMITMENTS</p>
               <h3 style={{ fontFamily: "'Fraunces',serif", fontSize: "clamp(20px,2.2vw,28px)", lineHeight: 1.15, color: "#EFE7D6", marginBottom: "20px" }}>
